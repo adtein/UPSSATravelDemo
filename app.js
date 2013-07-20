@@ -52,8 +52,8 @@ Ext.application({
     isIconPrecomposed: false,
 
     glossOnIcon: false,
-    phoneStartupScreen: 'resources/startup/640x1096.png',
-    tabletStartupScreen: 'resources/startup/640x1096.png',
+    phoneStartupScreen: 'resources/startup/adteinStartUp.jpg',
+    tabletStartupScreen: 'resources/startup/adteinStartUp.jpg',
     /**
      * The launch method is called when the browser is ready and the application is ready to
      * launch.
