@@ -1,14 +1,14 @@
 /*
-    This file is generated and updated by Sencha Cmd. You can edit this file as
-    needed for your application, but these edits will have to be merged by
-    Sencha Cmd when it performs code generation tasks such as generating new
-    models, controllers or views and when running "sencha app upgrade".
+ This file is generated and updated by Sencha Cmd. You can edit this file as
+ needed for your application, but these edits will have to be merged by
+ Sencha Cmd when it performs code generation tasks such as generating new
+ models, controllers or views and when running "sencha app upgrade".
 
-    Ideally changes to this file would be limited and most work would be done
-    in other places (such as Controllers). If Sencha Cmd cannot merge your
-    changes and its generated code, it will produce a "merge conflict" that you
-    will need to resolve manually.
-*/
+ Ideally changes to this file would be limited and most work would be done
+ in other places (such as Controllers). If Sencha Cmd cannot merge your
+ changes and its generated code, it will produce a "merge conflict" that you
+ will need to resolve manually.
+ */
 
 // DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
 //@require @packageOverrides
@@ -61,7 +61,7 @@ Ext.application({
     launch: function() {
         //first we define each of the categories we have for each one of the horixontal carousels
         //these images can be found inside resources/photos/{category_name}/*
-        var categories = ['Food', 'Animals', 'Cars', 'Architecture'],
+        var categories = ['Brasil', 'Francia', 'Guatemala', 'Jamaica', 'Orlando Disney', 'Panama Hard Rock Cafe', 'Puerto Vallarta Mexico', 'San Andres de Cameron', 'Tierra Santa'],
             itemsCountPerCategory = 10,
             horizontalCarousels = [],
             items, i, j, ln, category;
@@ -76,11 +76,46 @@ Ext.application({
                 //you can see we are using the img xtype which is an image component,
                 //and we just give is a custom cls to style it, and the src
                 //of the image
-                items.push({
-                    xtype: 'image',
-                    cls: 'my-carousel-item-img',
-                    src: 'resources/photos/' + category + '/' + j + '.jpg'
-                });
+                items.push(
+                    {
+                        xtype: 'container',
+                        layout:'fit',
+                        items: [
+                            {
+                                xtype : 'toolbar',
+                                docked: 'top',
+                                title: category,
+                                style: 'background: #C80000'
+                            },
+                            {
+                                xtype: 'image',
+                                cls: 'my-carousel-item-img',
+                                src: 'resources/photos/' + category + '/' + j + '.jpg'
+                            },
+                            {
+                                xtype : 'toolbar',
+                                docked: 'bottom',
+                                style: 'background: #C80000',
+                                items: [
+                                    {
+                                        xtype: 'spacer'
+                                    },
+                                    {
+                                        xtype: 'button',
+                                        text: 'Información',
+                                        style: 'background: transparent;',
+                                        listeners: {
+                                            scope: this,
+                                            tap: function(){
+                                                Ext.Msg.alert('UPSSA Travel', 'Leana Verónica Vásquez Salas... Telefono: +(506) 8763-8404', Ext.emptyFn);
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                );
             }
 
             //now we add the new horizontal carousel for this category
@@ -102,21 +137,15 @@ Ext.application({
         //category carousels above
         Ext.Viewport.add(
             {
-                xtype: 'container',
-                items: [
-                    {
-                        xtype: 'carousel',
+                xtype: 'carousel',
 
-                        bufferSize: 2,
+                bufferSize: 2,
 
-                        //this time direction vertical
-                        direction: 'vertical',
+                //this time direction vertical
+                direction: 'vertical',
 
-                        //and the horizontalCarousels array
-                        items: horizontalCarousels
-                    }
-                ]
-            }
-            );
+                //and the horizontalCarousels array
+                items: horizontalCarousels
+            });
     }
 });
