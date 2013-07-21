@@ -100,16 +100,23 @@ Ext.application({
 
         //and finally we create the vertical carousel which contains each of the horizontal
         //category carousels above
-        Ext.Viewport.add({
-            xtype: 'carousel',
+        Ext.Viewport.add(
+            {
+                xtype: 'container',
+                items: [
+                    {
+                        xtype: 'carousel',
 
-            bufferSize: 2,
+                        bufferSize: 2,
 
-            //this time direction vertical
-            direction: 'vertical',
+                        //this time direction vertical
+                        direction: 'vertical',
 
-            //and the horizontalCarousels array
-            items: horizontalCarousels
-        });
+                        //and the horizontalCarousels array
+                        items: horizontalCarousels
+                    }
+                ]
+            }
+            );
     }
 });
